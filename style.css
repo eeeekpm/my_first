@@ -53,3 +53,58 @@ body {
 
     cursor: pointer;
 }
+/* Σωστή απάντηση */
+.answer.correct {
+    background-color: #22c55e;
+    color: white;
+}
+
+/* Λάθος απάντηση */
+.answer.wrong {
+    background-color: #ef4444;
+    color: white;
+}
+
+/* Απενεργοποιημένες απαντήσεις */
+.answer:disabled {
+    cursor: not-allowed;
+    opacity: 0.9;
+}
+
+
+/* Κουμπί επανάληψης */
+.restart-btn {
+    display: block;
+    width: 100%;
+    margin: 15px 0;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #22c55e;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.restart-btn:hover {
+    background-color: #16a34a;
+}
+
+
+/* Κουμπί εξόδου */
+.exit-btn {
+    display: block;
+    width: 100%;
+    margin: 15px 0;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ef4444;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.exit-btn:hover {
+    background-color: #dc2626;
+}
