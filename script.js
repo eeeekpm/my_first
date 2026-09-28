@@ -27,11 +27,14 @@ const progressText = document.getElementById("progress-text");
 const progressBar = document.getElementById("progress");
 
 function showQuestion() {
-const question = questions[currentQuestion];
 
 ```
+const question = questions[currentQuestion];
+
 questionElement.textContent = question.question;
+
 answersElement.innerHTML = "";
+
 scoreElement.textContent = "";
 
 nextButton.style.display = "none";
@@ -43,24 +46,34 @@ progressBar.style.width =
     `${(currentQuestion / questions.length) * 100}%`;
 
 question.answers.forEach((answer, index) => {
+
     const button = document.createElement("button");
 
     button.textContent = answer;
+
     button.classList.add("answer");
 
     button.addEventListener("click", () => {
-        const allAnswers = document.querySelectorAll(".answer");
+
+        const allAnswers =
+            document.querySelectorAll(".answer");
 
         allAnswers.forEach(answerButton => {
             answerButton.disabled = true;
         });
 
         if (index === question.correct) {
+
             button.classList.add("correct");
+
             score++;
+
         } else {
+
             button.classList.add("wrong");
-            allAnswers[question.correct].classList.add("correct");
+
+            allAnswers[question.correct]
+                .classList.add("correct");
         }
 
         nextButton.style.display = "block";
@@ -73,12 +86,16 @@ question.answers.forEach((answer, index) => {
 }
 
 nextButton.addEventListener("click", () => {
-currentQuestion++;
 
 ```
+currentQuestion++;
+
 if (currentQuestion < questions.length) {
+
     showQuestion();
+
 } else {
+
     showResults();
 }
 ```
@@ -86,40 +103,72 @@ if (currentQuestion < questions.length) {
 });
 
 function showResults() {
-questionElement.textContent = "🎉 Τέλος του Quiz!";
 
 ```
+questionElement.textContent =
+    "🎉 Τέλος του Quiz!";
+
 answersElement.innerHTML = "";
+
 nextButton.style.display = "none";
 
-progressText.textContent = "Ολοκλήρωσες το Quiz!";
+progressText.textContent =
+    "Ολοκλήρωσες το Quiz!";
+
 progressBar.style.width = "100%";
 
-const percentage = Math.round((score / questions.length) * 100);
+const percentage =
+    Math.round((score / questions.length) * 100);
 
 scoreElement.innerHTML =
     `🏆 Σωστές απαντήσεις: ${score}/${questions.length}<br><br>` +
     `🌟 Ποσοστό επιτυχίας: ${percentage}%`;
 
 if (percentage === 100) {
-    scoreElement.innerHTML += "<br><br>🎉 Συγχαρητήρια! Τέλεια!";
+
+    scoreElement.innerHTML +=
+        "<br><br>🎉 Συγχαρητήρια! Τέλεια!";
+
 } else if (percentage >= 50) {
-    scoreElement.innerHTML += "<br><br>👏 Πολύ καλή προσπάθεια!";
+
+    scoreElement.innerHTML +=
+        "<br><br>👏 Πολύ καλή προσπάθεια!";
+
 } else {
-    scoreElement.innerHTML += "<br><br>💪 Προσπάθησε ξανά!";
+
+    scoreElement.innerHTML +=
+        "<br><br>💪 Προσπάθησε ξανά!";
 }
 
-const restartButton = document.createElement("button");
-restartButton.textContent = "🔄 Ξανά από την αρχή";
+
+const restartButton =
+    document.createElement("button");
+
+restartButton.textContent =
+    "🔄 Ξανά από την αρχή";
+
 restartButton.classList.add("restart-btn");
-restartButton.addEventListener("click", restartQuiz);
+
+restartButton.addEventListener(
+    "click",
+    restartQuiz
+);
 
 answersElement.appendChild(restartButton);
 
-const exitButton = document.createElement("button");
-exitButton.textContent = "🚪 Έξοδος";
+
+const exitButton =
+    document.createElement("button");
+
+exitButton.textContent =
+    "🚪 Έξοδος";
+
 exitButton.classList.add("exit-btn");
-exitButton.addEventListener("click", exitQuiz);
+
+exitButton.addEventListener(
+    "click",
+    exitQuiz
+);
 
 answersElement.appendChild(exitButton);
 ```
@@ -127,17 +176,32 @@ answersElement.appendChild(exitButton);
 }
 
 function restartQuiz() {
+
+```
 currentQuestion = 0;
+
 score = 0;
+
 showQuestion();
+```
+
 }
 
 function exitQuiz() {
-questionElement.textContent = "👋 Ευχαριστούμε που έπαιξες!";
+
+```
+questionElement.textContent =
+    "👋 Ευχαριστούμε που έπαιξες!";
+
 answersElement.innerHTML = "";
+
 scoreElement.textContent = "";
+
 progressText.textContent = "";
+
 progressBar.style.width = "100%";
+```
+
 }
 
 // Ξεκινάμε το Quiz
