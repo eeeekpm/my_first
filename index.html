@@ -1,30 +1,41 @@
 <!DOCTYPE html>
+
 <html lang="el">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Το Quiz μου</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="quiz-container">
+```
+<div class="quiz-container">
 
-        <h1>🎯 Το Quiz μου</h1>
+    <h1>🎯 Το Quiz μου</h1>
+    <p class="subtitle">Δοκίμασε τις γνώσεις σου!</p>
 
-        <h2 id="question">Ερώτηση</h2>
-
-        <div id="answers"></div>
-
-        <button id="next-btn">Επόμενη</button>
-
-        <p id="score"></p>
-
+    <div class="progress-container">
+        <p id="progress-text">Ερώτηση 1 από 3</p>
+        <div class="progress-bar">
+            <div id="progress"></div>
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <h2 id="question">Ερώτηση</h2>
+
+    <div id="answers"></div>
+
+    <button id="next-btn">Επόμενη ➜</button>
+
+    <p id="score"></p>
+
+</div>
+
+<script src="script.js"></script>
+```
 
 </body>
-
 </html>
