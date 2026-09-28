@@ -28,7 +28,6 @@ const progressBar = document.getElementById("progress");
 
 function showQuestion() {
 
-```
 const question = questions[currentQuestion];
 
 questionElement.textContent = question.question;
@@ -89,13 +88,12 @@ question.answers.forEach(function(answer, index) {
     answersElement.appendChild(button);
 
 });
-```
+
 
 }
 
 nextButton.addEventListener("click", function() {
 
-```
 currentQuestion++;
 
 
@@ -107,13 +105,13 @@ if (currentQuestion < questions.length) {
 
     showResults();
 }
-```
+
 
 });
 
 function showResults() {
 
-```
+
 questionElement.textContent =
     "🎉 Τέλος του Quiz!";
 
@@ -187,25 +185,24 @@ exitButton.addEventListener("click", exitQuiz);
 
 
 answersElement.appendChild(exitButton);
-```
+
 
 }
 
 function restartQuiz() {
 
-```
 currentQuestion = 0;
 
 score = 0;
 
 showQuestion();
-```
+
 
 }
 
 function exitQuiz() {
 
-```
+
 questionElement.textContent =
     "👋 Ευχαριστούμε που έπαιξες!";
 
@@ -216,7 +213,6 @@ scoreElement.textContent = "";
 progressText.textContent = "";
 
 progressBar.style.width = "100%";
-```
 
 }
 
