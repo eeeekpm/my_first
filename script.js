@@ -40,12 +40,14 @@ scoreElement.textContent = "";
 nextButton.style.display = "none";
 
 progressText.textContent =
-    `Ερώτηση ${currentQuestion + 1} από ${questions.length}`;
+    "Ερώτηση " + (currentQuestion + 1) +
+    " από " + questions.length;
 
 progressBar.style.width =
-    `${(currentQuestion / questions.length) * 100}%`;
+    ((currentQuestion / questions.length) * 100) + "%";
 
-question.answers.forEach((answer, index) => {
+
+question.answers.forEach(function(answer, index) {
 
     const button = document.createElement("button");
 
@@ -53,14 +55,17 @@ question.answers.forEach((answer, index) => {
 
     button.classList.add("answer");
 
-    button.addEventListener("click", () => {
+
+    button.addEventListener("click", function() {
 
         const allAnswers =
             document.querySelectorAll(".answer");
 
-        allAnswers.forEach(answerButton => {
+
+        allAnswers.forEach(function(answerButton) {
             answerButton.disabled = true;
         });
+
 
         if (index === question.correct) {
 
@@ -76,19 +81,23 @@ question.answers.forEach((answer, index) => {
                 .classList.add("correct");
         }
 
+
         nextButton.style.display = "block";
     });
 
+
     answersElement.appendChild(button);
+
 });
 ```
 
 }
 
-nextButton.addEventListener("click", () => {
+nextButton.addEventListener("click", function() {
 
 ```
 currentQuestion++;
+
 
 if (currentQuestion < questions.length) {
 
@@ -108,21 +117,30 @@ function showResults() {
 questionElement.textContent =
     "🎉 Τέλος του Quiz!";
 
+
 answersElement.innerHTML = "";
 
 nextButton.style.display = "none";
 
+
 progressText.textContent =
     "Ολοκλήρωσες το Quiz!";
 
+
 progressBar.style.width = "100%";
+
 
 const percentage =
     Math.round((score / questions.length) * 100);
 
+
 scoreElement.innerHTML =
-    `🏆 Σωστές απαντήσεις: ${score}/${questions.length}<br><br>` +
-    `🌟 Ποσοστό επιτυχίας: ${percentage}%`;
+    "🏆 Σωστές απαντήσεις: " +
+    score + "/" + questions.length +
+    "<br><br>" +
+    "🌟 Ποσοστό επιτυχίας: " +
+    percentage + "%";
+
 
 if (percentage === 100) {
 
@@ -149,10 +167,9 @@ restartButton.textContent =
 
 restartButton.classList.add("restart-btn");
 
-restartButton.addEventListener(
-    "click",
-    restartQuiz
-);
+
+restartButton.addEventListener("click", restartQuiz);
+
 
 answersElement.appendChild(restartButton);
 
@@ -165,10 +182,9 @@ exitButton.textContent =
 
 exitButton.classList.add("exit-btn");
 
-exitButton.addEventListener(
-    "click",
-    exitQuiz
-);
+
+exitButton.addEventListener("click", exitQuiz);
+
 
 answersElement.appendChild(exitButton);
 ```
@@ -204,5 +220,4 @@ progressBar.style.width = "100%";
 
 }
 
-// Ξεκινάμε το Quiz
 showQuestion();
